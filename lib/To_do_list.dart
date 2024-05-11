@@ -31,6 +31,7 @@ class To_Do_List extends StatelessWidget {
       body: Container(
           width: double.infinity,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Padding(
                 padding: EdgeInsets.all(8.0),
