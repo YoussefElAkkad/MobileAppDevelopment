@@ -11,14 +11,20 @@ class To_Do_List extends StatelessWidget {
             color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
         backgroundColor: Colors.blue,
         centerTitle: true,
-        leading: const Icon(Icons.menu),
+        leading: const Icon(
+          Icons.menu,
+          color: Colors.white,
+        ),
         title: const Text("To Do List"),
         actions: [
           IconButton(
             onPressed: () {
               print("Hello world");
             },
-            icon: const Icon(Icons.add),
+            icon: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
           )
         ],
       ),
