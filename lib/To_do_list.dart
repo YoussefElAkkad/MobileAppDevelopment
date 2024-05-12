@@ -9,7 +9,7 @@ class To_Do_List extends StatelessWidget {
       appBar: AppBar(
         titleTextStyle: const TextStyle(
             color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(0xff0140a28),
         centerTitle: true,
         leading: const Icon(
           Icons.menu,
@@ -18,56 +18,221 @@ class To_Do_List extends StatelessWidget {
         title: const Text("To Do List"),
         actions: [
           IconButton(
-            onPressed: () {
-              print("Hello world");
-            },
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
+            onPressed: () {},
+            iconSize: 50,
+            icon: const CircleAvatar(
+              backgroundColor: Color(0xff321a70),
+              radius: 50,
+              child: Icon(Icons.add, size: 30, color: Colors.white),
             ),
-          )
+          ),
         ],
       ),
-      body: Container(
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
           width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Do my math homework",
-                  style: TextStyle(backgroundColor: Colors.amber),
+              Container(
+                color: Colors.grey[300],
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text("Search",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ))
+                  ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("Go to school on time",
-                    style: TextStyle(backgroundColor: Colors.amber)),
+              const SizedBox(
+                height: 30,
               ),
-              const Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const Text("Eat healthy food",
-                    style: TextStyle(backgroundColor: Colors.amber)),
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my English Homework",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  )
+                ],
               ),
-              const Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const Text("Study for Science Exam",
-                    style: TextStyle(backgroundColor: Colors.green)),
+              const SizedBox(
+                height: 30,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    print("You can do this");
-                  },
-                  color: Colors.green,
-                  textColor: Colors.white,
-                  child: const Text("Motivation Button"),
-                ),
-              )
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my Math Homework",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my Physics Homework",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my Chemistry Homework",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    value: true,
+                    activeColor: const Color(0xff321a70),
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my CS Homework",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    activeColor: const Color(0xff321a70),
+                    value: true,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my German Homework",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    activeColor: const Color(0xff321a70),
+                    value: true,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my French Homework",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    activeColor: const Color(0xff321a70),
+                    value: true,
+                    onChanged: (value) {
+                      print("Finished");
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Finish my Arabic Homework",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  )
+                ],
+              ),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
