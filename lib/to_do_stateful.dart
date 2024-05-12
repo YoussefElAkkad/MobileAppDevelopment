@@ -9,9 +9,9 @@ class NewFile extends StatefulWidget {
 
 class NewFileState extends State<NewFile> {
   TextEditingController newSentence = TextEditingController();
-  String sentence = '';
-  bool flag = false;
-  bool _isVisible = false; // Initially, checkbox is hidden
+  List<String> sentences = [];
+  List<bool> checkboxValues = [];
+  List<Color> textColors = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +52,8 @@ class NewFileState extends State<NewFile> {
                   labelText: "New Sentence",
                   labelStyle: TextStyle(color: Color(0xff321a70)),
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xff321a70))),
                   prefixIcon: Icon(Icons.edit),
                   prefixIconColor: Color(0xff321a70),
                 ),
@@ -63,10 +65,9 @@ class NewFileState extends State<NewFile> {
             MaterialButton(
               onPressed: () {
                 setState(() {
-                  // Toggle visibility
-                  _isVisible = true;
-                  flag = false;
-                  sentence = newSentence.text;
+                  sentences.add(newSentence.text);
+                  checkboxValues.add(false);
+                  textColors.add(const Color(0xff321a70));
                   newSentence.clear();
                 });
               },
@@ -77,29 +78,39 @@ class NewFileState extends State<NewFile> {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              children: [
-                Visibility(
-                    visible: _isVisible,
-                    child: Checkbox(
-                      value: flag,
-                      onChanged: (value) {
-                        setState(() {
-                          flag = value!;
-                        });
-                      },
-                      activeColor: const Color(0xff321a70),
-                    )),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  sentence,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: sentences.length,
+                itemBuilder: (context, index) {
+                  return Row(
+                    children: [
+                      Checkbox(
+                        value: checkboxValues[index],
+                        onChanged: (value) {
+                          setState(() {
+                            checkboxValues[index] = value!;
+                            if (value) {
+                              textColors[index] = Colors.grey;
+                            } else {
+                              textColors[index] = Color(0xff321a70);
+                            }
+                          });
+                        },
+                        activeColor: const Color(0xff321a70),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        sentences[index],
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: textColors[index]),
+                      )
+                    ],
+                  );
+                }),
           ],
         ),
       ),
