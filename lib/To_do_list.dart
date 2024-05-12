@@ -36,7 +36,7 @@ class To_Do_List extends StatelessWidget {
             children: [
               Container(
                 color: Colors.grey[300],
-                padding: const EdgeInsets.all(8),
+                height: 40,
                 child: Row(
                   children: const [
                     Icon(
