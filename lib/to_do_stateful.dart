@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
 class NewFile extends StatefulWidget {
-  NewFile({super.key});
+  const NewFile({super.key});
 
   @override
   State<NewFile> createState() => _NewFileState();
@@ -78,8 +78,8 @@ class _NewFileState extends State<NewFile> {
               ),
               MaterialButton(
                 onPressed: () async {
-                  if (name.text.isEmpty &&
-                      age.text.isEmpty &&
+                  if (name.text.isEmpty ||
+                      age.text.isEmpty ||
                       grade.text.isEmpty) {
                     print("Empty field");
                   } else {
