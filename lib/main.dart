@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'to_do_stateful.dart';
+import 'new_note.dart';
+import 'all_notes.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MainApp());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
-  //test test
-  //test test
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      home: Notes(),
+      //home: NewNote(),
       debugShowCheckedModeBanner: false,
-      home: NewFile(),
     );
   }
 }
