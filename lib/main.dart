@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'new_note.dart';
-import 'all_notes.dart';
+
+import 'database_helper.dart';
+import 'notes_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  DBHelper.createDB();
   runApp(const MainApp());
 }
 
@@ -13,7 +16,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Notes(),
-      //home: NewNote(),
       debugShowCheckedModeBanner: false,
     );
   }
